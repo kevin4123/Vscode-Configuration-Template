@@ -1,9 +1,9 @@
 #include "MyMiniMFC.h"
 
-MiniApp* g_pApp = nullptr;  
+MiniApp* g_pApp = nullptr;  // global pointer to the application
 
-MiniApp::MiniApp() {
-    g_pApp = this;
+MiniApp::MiniApp() {		
+    g_pApp = this;			// 2: set the global pointer,only one instance per process
 }
 
 int MiniApp::Run() {
@@ -51,10 +51,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR, int) {
     if (g_pApp == nullptr)
         return -1;
 
-    g_pApp->hInstance = hInstance;
+    g_pApp->hInstance = hInstance;		// 3:set the application instance
 
-    if (!g_pApp->InitInstance())
+    if (!g_pApp->InitInstance())		// 4: initialize the application and create main window
         return -1;
 
-    return g_pApp->Run();
+    return g_pApp->Run();				// 5: run the application,main message loop
 }

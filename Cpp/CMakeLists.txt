@@ -47,6 +47,9 @@ message("Build type: " ${CMAKE_BUILD_TYPE})
 add_executable(${CMAKE_PROJECT_NAME})
 
 # add subdirectories
+add_subdirectory(src)
+
+#include
 #include()
 
 # Add sources to executable
@@ -76,6 +79,7 @@ INTERFACE
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME}
 PRIVATE
+	include
 PUBLIC
 INTERFACE
 )
@@ -109,7 +113,7 @@ INTERFACE
 )
 
 ########################################
-# DEBUG
+# INFORMATION | DEBUG
 ########################################
 
 # Enable debug output of target properties

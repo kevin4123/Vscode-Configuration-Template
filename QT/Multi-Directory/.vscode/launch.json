@@ -7,10 +7,12 @@
 		"name": "MSVC Debug",
 		"type": "cppvsdbg",
 		"request": "launch",
-		"program": "${workspaceFolder}/build/Debug/MyProject.exe",  //修改      1
+		"program": "${workspaceFolder}/build/QTApp.exe",  //修改      1
 		"args": [],
 		"environment": [],
 		"externalConsole": false,
+		"console": "integratedTerminal",
+		"cwd": "${workspaceFolder}",
 	},
     /* ---------- GCC Debug (GDB) ---------- */
     {

@@ -2,16 +2,16 @@
 #include <windows.h>
 
 class MiniApp;
-extern MiniApp* g_pApp; 
+extern MiniApp* g_pApp;  // global pointer to the application
 
 class MiniApp {
 public:
     HINSTANCE hInstance;
     HWND hWnd;
 
-    MiniApp();
+    MiniApp();		
 
-    virtual bool InitInstance() = 0; 
+    virtual bool InitInstance() = 0; // pure virtual
 
     virtual int Run();
 
