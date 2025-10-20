@@ -2,7 +2,7 @@
 
 int main()
 {
-	MessageBox(NULL, "Hello, World!", "Hello", MB_OK);
+	MessageBox(NULL,L"Hello, World!", L"Hello", MB_OK);
 
 
 	return 0;

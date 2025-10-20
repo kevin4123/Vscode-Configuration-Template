@@ -1,3 +1,13 @@
+########################################
+# mkdir build
+# cd build
+########################################
+# cmake -S . -B build -G "Ninja"
+# cmake --build build			|			ninja -v: verbose for link info 
+#+++++++++++++++++++++++++++++++++++++++
+# cmake -S . -B build -G "MinGW Makefiles"
+# cmake --build build			|			mingw32-make VERBOSE=1
+########################################
 cmake_minimum_required(VERSION 3.22)		# Minimum version of CMake required
 
 #
@@ -67,6 +77,14 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-
     # Add user defined libraries
 )
+
+# Add linker script
+set(LINKER_SCRIPT "${CMAKE_SOURCE_DIR}/STM32F103XX_FLASH.ld")
+
+# information
+include("cmake/embedded/PrintEmbeddedInfo.cmake")
+include("cmake/common/PrintCommonInfo.cmake")
+# print_common_info()
+# print_embedded_info()

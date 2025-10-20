@@ -3,7 +3,7 @@
 # cd build
 ########################################
 # cmake -S .. -B . -G "Ninja"
-# cmake --build .			|			ninja -v
+# cmake --build .			|			ninja -v: verbose for link info 
 #+++++++++++++++++++++++++++++++++++++++
 # cmake -S .. -B . -G "MinGW Makefiles"
 # cmake --build .			|			mingw32-make VERBOSE=1
@@ -26,7 +26,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME App)
+set(CMAKE_PROJECT_NAME App)				# project name
 
 # Include toolchain file
 #include()
@@ -112,12 +112,6 @@ PUBLIC
 INTERFACE
 )
 
-########################################
-# INFORMATION | DEBUG
-########################################
-
-# Enable debug output of target properties
-# set(CMAKE_DEBUG_TARGET_PROPERTIES 
-#   INCLUDE_DIRECTORIES 
-#   INTERFACE_INCLUDE_DIRECTORIES
-# )
+# information
+include(${CMAKE_SOURCE_DIR}/cmake/common/PrintCommonInfo.cmake)
+# print_common_info()

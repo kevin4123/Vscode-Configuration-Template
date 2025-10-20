@@ -23,6 +23,9 @@ set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)		# try_compile target type for
 
 # MCU specific flags
 set(TARGET_FLAGS "-mcpu=cortex-m3 ")					
+# set(CPU_FLAGS "-mcpu=cortex-m3 -mthumb")
+# set(FPU_FLAGS "-mfpu=fpv4-sp-d16")
+# set(FLOAT_ABI "-mfloat-abi=soft")		
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_FLAGS}")
 # Treat the input file as assembly language, but run it through the C preprocessor first. (-x assembler-with-cpp)

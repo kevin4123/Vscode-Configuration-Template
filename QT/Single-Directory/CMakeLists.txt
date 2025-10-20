@@ -67,23 +67,8 @@ set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
 )
 
 
-########################################
-# INFORMATION | DEBUG
-########################################
-get_target_property(AUTORCC ${CMAKE_PROJECT_NAME} AUTORCC)
-message(STATUS "AUTORCC:${AUTORCC}")								# show autorcc property
-get_target_property(AUTOUIC ${CMAKE_PROJECT_NAME} AUTOUIC)						
-message(STATUS "AUTOUIC:${AUTOUIC}")								# show autouic property
-get_target_property(AUTOMOC ${CMAKE_PROJECT_NAME} AUTOMOC)						
-message(STATUS "AUTOMOC:${AUTOMOC}")								# show automoc property
-message(STATUS "MOC MACROS:${CMAKE_AUTOMOC_MACRO_NAMES}")			# show all macro names
-message(STATUS "QT version:${QT_VERSION_MAJOR}")					# show qt version	
-message(STATUS ${AUTOUIC_SEARCH_PATHS})								# show autouic search paths
-get_target_property(SOURCES ${CMAKE_PROJECT_NAME} SOURCES)			
-message(STATUS "SOURCES:${SOURCES}")								# show all sources
-get_target_property(HEADERS ${CMAKE_PROJECT_NAME} HEADERS)			
-message(STATUS "HEADERS:${HEADERS}")								# show all headers
-get_target_property(WIN32_EXECUTABLE ${CMAKE_PROJECT_NAME} WIN32_EXECUTABLE)
-message(STATUS "WIN32_EXECUTABLE:${WIN32_EXECUTABLE}")				# show win32 executable
-get_target_property(MACOSX_BUNDLE ${CMAKE_PROJECT_NAME} MACOSX_BUNDLE)
-message(STATUS "MACOSX_BUNDLE:${MACOSX_BUNDLE}")					# show macosx bundle
+# information
+include(${CMAKE_SOURCE_DIR}/cmake/common/PrintCommonInfo.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/qt/PrintQtInfo.cmake)
+print_common_info()
+print_qt_info()
