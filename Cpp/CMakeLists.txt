@@ -2,7 +2,7 @@
 # mkdir build
 # cd build
 ########################################
-# cmake -S .. -B . -G "Ninja"
+# cmake -S .. -B . -G "Ninja"			-DCMAKE_BUILD_TYPE=Release | -DCMAKE_BUILD_TYPE=Debug
 # cmake --build .			|			ninja -v: verbose for link info 
 #+++++++++++++++++++++++++++++++++++++++
 # cmake -S .. -B . -G "MinGW Makefiles"

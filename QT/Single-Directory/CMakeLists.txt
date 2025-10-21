@@ -2,11 +2,13 @@
 # mkdir build
 # cd build
 ########################################
-# cmake -S .. -B . -G "Ninja"
+# cmake -S .. -B . -G "Ninja"			-DCMAKE_BUILD_TYPE=Release | -DCMAKE_BUILD_TYPE=Debug
 # cmake --build .			|			ninja -v
 #+++++++++++++++++++++++++++++++++++++++
 # cmake -S .. -B . -G "MinGW Makefiles"
 # cmake --build .			|			mingw32-make VERBOSE=1
+########################################
+# windeployqt QTApp.exe
 ########################################
 cmake_minimum_required(VERSION 3.16)
 

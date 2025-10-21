@@ -1,9 +1,9 @@
 {
     /*General settings*/
     "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": "active",           // 显示活跃的括号连线
-    "editor.guides.bracketPairsHorizontal": true,     // 横向也显示
-    "editor.guides.highlightActiveBracketPair": true,  // 高亮当前括号对
+    "editor.guides.bracketPairs": "active",           
+    "editor.guides.bracketPairsHorizontal": true,     
+    "editor.guides.highlightActiveBracketPair": true,  
     "editor.mouseWheelZoom": true,
     "editor.insertSpaces": false,
     "editor.tabSize": 4,
@@ -20,9 +20,8 @@
 		},
 		"QT6_MSVC_x64": {
 			"path": "cmd.exe",
-			"args": ["/k", "D:\\Qt\\6.9.2\\msvc2022_64\\bin\\qtenv2.bat && D:\\MSCV2022\\VC\\Auxiliary\\Build\\vcvars64.bat"]
+			"args": ["/k", "D:\\Qt\\6.9.2\\msvc2022_64\\bin\\qtenv2.bat && D:\\MSCV2022\\VC\\Auxiliary\\Build\\vcvars64.bat && cd /d %CD%"]
 		},
-
 	},
     /*fittencode*/
     "fittencode.languagePreference.displayPreference": "en",
@@ -30,7 +29,8 @@
     "fittencode.selection.showCodeLens": false,
     /*clangd*/
     "clangd.arguments": [
-        "--compile-commands-dir=build"
+        "--compile-commands-dir=build",
+		// "--compile-args=-Wno-unused-command-line-argument",
     ],
 	"clangd.fallbackFlags": [
 	],
@@ -57,6 +57,8 @@
     "cortex-debug.gdbPath.windows": "D:/arm-gnu-toolchain/arm-gnu-toolchain/bin/arm-none-eabi-gdb.exe",
 	"digital-ide.welcome.show": false,
 	"qtConfigure.qtDir": "d:\\QT\\qtWin",
+	"svg.preview.mode": "svg",
+	"clangd.detectExtensionConflicts": false,
 		
 }
 

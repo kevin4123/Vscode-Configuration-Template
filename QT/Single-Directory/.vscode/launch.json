@@ -10,7 +10,6 @@
 		"program": "${workspaceFolder}/build/QTApp.exe",  //修改      1
 		"args": [],
 		"environment": [],
-		"externalConsole": false,
 		"console": "integratedTerminal",
 		"cwd": "${workspaceFolder}",
 	},

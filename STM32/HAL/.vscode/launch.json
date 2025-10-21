@@ -10,7 +10,6 @@
 		"program": "${workspaceFolder}/build/<filename>.exe",  //修改      1
 		"args": [],
 		"environment": [],
-		"externalConsole": false,
 		"console": "integratedTerminal",
 		"cwd": "${workspaceFolder}",
 	},
