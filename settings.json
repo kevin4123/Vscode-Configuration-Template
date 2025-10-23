@@ -32,6 +32,7 @@
         "--compile-commands-dir=build",
 		// "--compile-args=-Wno-unused-command-line-argument",
     ],
+	"clangd.detectExtensionConflicts": false,
 	"clangd.fallbackFlags": [
 	],
     /*hex editor*/
@@ -58,8 +59,8 @@
 	"digital-ide.welcome.show": false,
 	"qtConfigure.qtDir": "d:\\QT\\qtWin",
 	"svg.preview.mode": "svg",
-	"clangd.detectExtensionConflicts": false,
-		
+	/*elfinsight*/
+	"elfinsight.armBinariesPath": "D:\\arm-gnu-toolchain\\arm-gnu-toolchain\\bin",
 }
 
 

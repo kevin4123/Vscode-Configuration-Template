@@ -1,4 +1,28 @@
+# compile_flags.txt
+# 可以指定编译器（可选）
+-compiler=arm-none-eabi-gcc
+
+# 架构和CPU
+-mcpu=cortex-m3
+-mthumb
+
+# 定义
 -DSTM32F10X_MD
--IC:/Users/ch180/Desktop/stm32_register/CMSIS/CM3/DeviceSupport/ST/STM32F10x
--IC:/Users/ch180/Desktop/stm32_register/CMSIS/CM3/CoreSupport
--IC:/Users/ch180/Desktop/stm32_register/Driver/BSP
+-DUSE_STDPERIPH_DRIVER
+-DDEBUG=1
+
+# 优化和调试
+-O0
+-g
+-Wall
+
+# 包含路径
+-ICMSIS/CM3/CoreSupport
+-ICMSIS/CM3/DeviceSupport/ST/STM32F10x
+-ISTM32F10x_StdPeriph_Driver/inc
+-IUser
+-IDriver/BSP
+
+# 其他标志
+-ffunction-sections
+-fdata-sections
