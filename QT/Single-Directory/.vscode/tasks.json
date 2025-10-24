@@ -1,68 +1,71 @@
 {
   "version": "2.0.0",
   "tasks": [
-    /* ---------- CMake Configure (MinGW)---------- */
-    {
-      "label": "CMake Configure (MinGW)",
-      "type": "shell",
-      "command": "cmake",
-      "args": [
-        "-S", ".",
-        "-B", "build",
-        "-G","MinGW Makefiles",   //修改
-        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-        "-DCMAKE_VERBOSE_MAKEFILE=ON"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-	  "detail": " Configures the project for building with MinGW Makefiles.",
-    },
-	/* ---------- Open Qt Creator---------- */
+	{
+		"label": "CMake Configure (MinGW)",
+		"type": "shell",
+		"command": "cmake",
+		"args": [
+			"-S",
+			".",
+			"-B",
+			"build",
+			"-G",
+			"MinGW Makefiles",
+			"-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+			"-DCMAKE_VERBOSE_MAKEFILE=ON"
+		],
+		"group": {
+			"kind": "build",
+			"isDefault": false
+		},
+		"detail": " Configures the project for building with MinGW Makefiles."
+	},
 	{
 		"label": "Open Qt Creator",
 		"type": "shell",
 		"command": "D:/Qt/Tools/QtCreator/bin/qtcreator.exe",
 		"group": "none",
 		"problemMatcher": [],
-		"detail": "Opens the Qt Creator IDE.",
+		"detail": "Opens the Qt Creator IDE."
 	},
-	/* ---------- Open Qt Designer---------- */
 	{
 		"label": "Open Qt Designer",
 		"type": "shell",
 		"command": "D:/Qt/6.9.2/msvc2022_64/bin/designer.exe",
+		"args": [
+			"mainwindow.ui",
+		],
 		"group": "none",
 		"problemMatcher": [],
-		"detail": "Opens the Qt Designer IDE.",
+		"detail": "Opens the Qt Designer IDE."
 	},
-	/* ---------- Open Qt Assistant---------- */
 	{
 		"label": "Open Qt Assistant",
 		"type": "shell",
 		"command": "D:/Qt/6.9.2/msvc2022_64/bin/assistant.exe",
 		"group": "none",
 		"problemMatcher": [],
-		"detail": "Opens the Qt Designer IDE.",
+		"detail": "Opens the Qt Designer IDE."
 	},
-    /* ---------- openOCD flash ---------- */
-    {
-      "label": "openOCD flash",  
-      "type": "shell",   
-      "command": "openocd",
-      "args": [
-        "-f", "interface/stlink.cfg",   //修改
-        "-f", "target/stm32f1x.cfg",    //修改
-        "-c", "program build/<filename>.elf verify reset exit"  //修改
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-	  "detail": "Flashes the STM32F103C8T6 microcontroller using openOCD."
-    },
-    /* ---------- DOXYGEN ---------- */
+	{
+		"label": "openOCD flash",
+		"type": "shell",
+		"command": "openocd",
+		"args": [
+			"-f",
+			"interface/stlink.cfg",
+			"-f",
+			"target/stm32f1x.cfg",
+			"-c",
+			"program build/<filename>.elf verify reset exit"
+		],
+		"group": {
+			"kind": "build",
+			"isDefault": false
+		},
+		"detail": "Flashes the STM32F103C8T6 microcontroller using openOCD."
+	},
 	{
 		"label": "DOXYGEN",
 		"type": "shell",
@@ -75,6 +78,6 @@
 			"isDefault": false
 		},
 		"detail": "Generates documentation using doxygen."
-	},
-  ]
+	}
+]
 }
