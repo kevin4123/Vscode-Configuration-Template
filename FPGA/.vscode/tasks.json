@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    /* ---------- GtkWave---------- */
+	{
+		"label": "GtkWave",
+		"type": "shell",
+		"command": "gtkwave",
+		"args": [
+			"tb.vcd",
+		],
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the GtkWave waveform viewer.",
+	},
+
+    /* ---------- CMake Configure (MinGW)---------- */
+    {
+      "label": "CMake Configure (MinGW)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S", ".",
+        "-B", "build",
+        "-G","MinGW Makefiles",   //修改
+        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
+        "-DCMAKE_VERBOSE_MAKEFILE=ON"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+	  "detail": " Configures the project for building with MinGW Makefiles.",
+    },
+    /* ---------- openOCD flash ---------- */
+    {
+      "label": "openOCD flash",  
+      "type": "shell",   
+      "command": "openocd",
+      "args": [
+        "-f", "interface/stlink.cfg",   //修改
+        "-f", "target/stm32f1x.cfg",    //修改
+        "-c", "program build/<filename>.elf verify reset exit"  //修改
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+	  "detail": "Flashes the STM32F103C8T6 microcontroller using openOCD."
+    },
+  ]
+}
