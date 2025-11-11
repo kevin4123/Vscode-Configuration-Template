@@ -1,0 +1,76 @@
+########################################
+# INFORMATION
+########################################
+function(print_embedded_info)
+
+	message(STATUS "")
+	message(STATUS "========== TOOLCHAIN INFORMATION ==========")
+	message(STATUS "CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
+	message(STATUS "CMAKE_SYSTEM_NAME: ${CMAKE_SYSTEM_NAME}")           # 目标系统（如 Generic、Linux、None）
+	message(STATUS "CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}") # 目标架构（如 arm, cortex-m3）
+	message(STATUS "CMAKE_CROSSCOMPILING: ${CMAKE_CROSSCOMPILING}")     # 是否为交叉编译（TRUE/FALSE）
+	message(STATUS "CMAKE_SYSTEM_VERSION: ${CMAKE_SYSTEM_VERSION}")
+
+	message(STATUS "CMAKE_TRY_COMPILE_TARGET_TYPE: ${CMAKE_TRY_COMPILE_TARGET_TYPE}")  # STATIC_LIBRARY / EXECUTABLE
+
+	message(STATUS "CMAKE_C_COMPILER_TARGET: ${CMAKE_C_COMPILER_TARGET}")   # 编译器目标三元组
+	message(STATUS "CMAKE_CXX_COMPILER_TARGET: ${CMAKE_CXX_COMPILER_TARGET}")
+	message(STATUS "CMAKE_ASM_COMPILER_TARGET: ${CMAKE_ASM_COMPILER_TARGET}")
+
+	message(STATUS "")
+
+	message(STATUS "========== LINKER & OUTPUT INFORMATION ==========")
+	message(STATUS "CMAKE_LINKER: ${CMAKE_LINKER}")
+	message(STATUS "CMAKE_EXE_LINKER_FLAGS: ${CMAKE_EXE_LINKER_FLAGS}")
+	message(STATUS "CMAKE_EXE_LINKER_FLAGS_DEBUG: ${CMAKE_EXE_LINKER_FLAGS_DEBUG}")
+	message(STATUS "CMAKE_EXE_LINKER_FLAGS_RELEASE: ${CMAKE_EXE_LINKER_FLAGS_RELEASE}")
+	message(STATUS "CMAKE_AR: ${CMAKE_AR}")
+	message(STATUS "CMAKE_OBJCOPY: ${CMAKE_OBJCOPY}")
+	message(STATUS "CMAKE_OBJDUMP: ${CMAKE_OBJDUMP}")
+	message(STATUS "CMAKE_STRIP: ${CMAKE_STRIP}")
+	message(STATUS "CMAKE_SIZE: ${CMAKE_SIZE}")
+
+	# 输出文件目录
+	get_target_property(RUNTIME_OUTPUT_DIR ${CMAKE_PROJECT_NAME} RUNTIME_OUTPUT_DIRECTORY)
+	get_target_property(ARCHIVE_OUTPUT_DIR ${CMAKE_PROJECT_NAME} ARCHIVE_OUTPUT_DIRECTORY)
+	get_target_property(LIBRARY_OUTPUT_DIR ${CMAKE_PROJECT_NAME} LIBRARY_OUTPUT_DIRECTORY)
+	message(STATUS "Runtime output dir: ${RUNTIME_OUTPUT_DIR}")
+	message(STATUS "Archive output dir: ${ARCHIVE_OUTPUT_DIR}")
+	message(STATUS "Library output dir: ${LIBRARY_OUTPUT_DIR}")
+
+	message(STATUS "")
+
+	message(STATUS "========== ASSEMBLER INFORMATION ==========")
+	message(STATUS "CMAKE_ASM_COMPILER: ${CMAKE_ASM_COMPILER}")
+	message(STATUS "CMAKE_ASM_COMPILER_ID: ${CMAKE_ASM_COMPILER_ID}")
+	message(STATUS "CMAKE_ASM_COMPILER_VERSION: ${CMAKE_ASM_COMPILER_VERSION}")
+	message(STATUS "CMAKE_ASM_FLAGS: ${CMAKE_ASM_FLAGS}")
+	message(STATUS "CMAKE_ASM_FLAGS_DEBUG: ${CMAKE_ASM_FLAGS_DEBUG}")
+	message(STATUS "CMAKE_ASM_FLAGS_RELEASE: ${CMAKE_ASM_FLAGS_RELEASE}")
+
+	message(STATUS "")
+
+	message(STATUS "========== MEMORY / LINKER SCRIPT ==========")
+	message(STATUS "LINKER_SCRIPT: ${LINKER_SCRIPT}")       # 自定义变量
+	message(STATUS "FLASH_ORIGIN: ${FLASH_ORIGIN}")         # 如果你在 toolchain 或 main cmake 定义
+	message(STATUS "FLASH_LENGTH: ${FLASH_LENGTH}")
+	message(STATUS "RAM_ORIGIN: ${RAM_ORIGIN}")
+	message(STATUS "RAM_LENGTH: ${RAM_LENGTH}")
+
+	message(STATUS "")
+
+	message(STATUS "========== CPU / FPU OPTIONS ==========")
+	message(STATUS "CPU_FLAGS: ${CPU_FLAGS}")
+	message(STATUS "FPU_FLAGS: ${FPU_FLAGS}")
+	message(STATUS "FLOAT_ABI: ${FLOAT_ABI}")
+
+	message(STATUS "")
+
+	message(STATUS "========== FIRMWARE ARTIFACTS ==========")
+	message(STATUS "ELF output: ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.elf")
+	message(STATUS "BIN output: ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.bin")
+	message(STATUS "HEX output: ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.hex")
+	message(STATUS "MAP output: ${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.map")
+	message(STATUS "")
+
+endfunction()
