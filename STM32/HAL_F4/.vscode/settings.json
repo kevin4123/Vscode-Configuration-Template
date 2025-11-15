@@ -4,7 +4,7 @@
 	/*clangd*/
 	// 1.默认是clangd 
     "clangd.arguments": [
-        "--compile-commands-dir=build/Debug",
+        "--compile-commands-dir=build",
 		"--query-driver=D:/arm-gnu-toolchain/arm-gnu-toolchain/bin/arm-none-eabi-gcc.exe"
     ],
 }

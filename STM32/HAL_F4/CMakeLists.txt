@@ -29,7 +29,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME hal)
+set(CMAKE_PROJECT_NAME App)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
@@ -58,11 +58,20 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+	${CMAKE_SOURCE_DIR}/Drivers/SYSTEM/sys/sys.c
+	${CMAKE_SOURCE_DIR}/Drivers/SYSTEM/usart/usart.c
+	${CMAKE_SOURCE_DIR}/Drivers/SYSTEM/delay/delay.c
+
+	${CMAKE_SOURCE_DIR}/Drivers/BSP/LED/led.c
+	${CMAKE_SOURCE_DIR}/Drivers/BSP/BEEP/beep.c
+	${CMAKE_SOURCE_DIR}/Drivers/BSP/KEY/key.c
+	${CMAKE_SOURCE_DIR}/Drivers/BSP/EXTI/exti.c
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
+	${CMAKE_SOURCE_DIR}/Drivers
 )
 
 # Add project symbols (macros)
@@ -76,9 +85,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 
     # Add user defined libraries
 )
-
-# Add linker script
-set(LINKER_SCRIPT "${CMAKE_SOURCE_DIR}/STM32F407XX_FLASH.ld")
 
 # information
 include("cmake/embedded/PrintEmbeddedInfo.cmake")

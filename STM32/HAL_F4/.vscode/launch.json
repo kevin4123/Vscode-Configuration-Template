@@ -57,17 +57,17 @@
     {
         "name": "Cortex-Debug (OpenOCD)",
         "cwd": "${workspaceRoot}",
-        "executable": "${workspaceRoot}/build/Debug/App.elf",  // 修改     1
+        "executable": "${workspaceRoot}/build/App.elf",  // 修改     1
         "request": "launch",
         "type": "cortex-debug",
         "servertype": "openocd",
         "serverpath": "D:/openOCD/openocd/bin/openocd.exe",
         "interface": "swd",
         "device": "STM32F103C8T6",                       // 修改     2
-        "svdFile": "${workspaceRoot}/svd/STM32F103.svd",  // ← 可选
+        "svdFile": "${workspaceRoot}/svd/STM32F407.svd",  // ← 可选
         "configFiles": [
             "interface/stlink.cfg",                      // 修改     3
-            "target/stm32f1x.cfg"                        // 修改     4
+            "target/stm32f4x.cfg"                        // 修改     4
         ],
         "runToEntryPoint": "main",             // 修改     5
     },
