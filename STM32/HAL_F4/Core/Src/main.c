@@ -9,6 +9,15 @@ static void MX_GPIO_Init(void);
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
+#include "./BSP/TIMER/btim.h"
+
+// 重定向 printf
+int __io_putchar(int ch)
+{
+    HAL_UART_Transmit(&g_uart1_handle, (uint8_t*)&ch, 1, 1000);
+    return ch;
+}
+
 
 int main(void)
 {
@@ -20,19 +29,17 @@ int main(void)
 
 // User initialization
 
-    HAL_Init();                                
-    sys_stm32_clock_init(336, 8, 2, 7);       
-    delay_init(168);                           
-    led_init();                               
-
+    HAL_Init();                             /* 初始化HAL库 */
+    sys_stm32_clock_init(336, 8, 2, 7);     /* 设置时钟,168Mhz */
+    delay_init(168);                        /* 延时初始化 */
+    usart_init(115200);                     /* 串口初始化为115200 */
+    led_init();                             /* 初始化LED */
+    btim_timx_int_init(5000 - 1, 8400 - 1); /* 84 000 000 / 84 00 = 10 000 , 10Khz的计数频率，计数5K次为500ms */
+    
     while(1)
     {
-        LED0(0);                               
-        LED1(1);                              
-        delay_ms(500);
-        LED0(1);                             
-        LED1(0);                             
-        delay_ms(500);
+        LED0_TOGGLE();                      /* LED0(红灯) 翻转 */
+        delay_ms(1000);
     }
 
 }
