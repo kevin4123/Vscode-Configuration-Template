@@ -23,7 +23,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+/* Includes ------------------------------------------------------------------*/
+#include "stm32f4xx_hal_def.h"
 #if defined(FMC_Bank1) || defined(FSMC_Bank1)
 
 /* Includes ------------------------------------------------------------------*/

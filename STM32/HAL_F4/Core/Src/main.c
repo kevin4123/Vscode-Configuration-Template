@@ -1,16 +1,20 @@
-// MX
+// MX					==============================================================
 #include "main.h"
+#include "debug.h"
+#include <stdint.h>
+#include <stdio.h>
 
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
-
+// MX					==============================================================
+						
 // User
 #include "./SYSTEM/sys/sys.h"
 #include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "./BSP/LED/led.h"
-#include "./BSP/TIMER/btim.h"
-
+#include "./BSP/LCD/lcd.h"
+				
 // 重定向 printf
 int __io_putchar(int ch)
 {
@@ -22,23 +26,90 @@ int __io_putchar(int ch)
 int main(void)
 {
 
-// MX initialization
-  HAL_Init();
+// MX initialization	==============================================================
+  HAL_Init();			
   SystemClock_Config();
   MX_GPIO_Init();
+// MX initialization	==============================================================
 
 // User initialization
-
+    uint8_t x = 0;
+    uint8_t lcd_id[12];
+    
     HAL_Init();                             /* 初始化HAL库 */
     sys_stm32_clock_init(336, 8, 2, 7);     /* 设置时钟,168Mhz */
     delay_init(168);                        /* 延时初始化 */
     usart_init(115200);                     /* 串口初始化为115200 */
     led_init();                             /* 初始化LED */
-    btim_timx_int_init(5000 - 1, 8400 - 1); /* 84 000 000 / 84 00 = 10 000 , 10Khz的计数频率，计数5K次为500ms */
-    
-    while(1)
+    lcd_init();                             /* 初始化LCD */
+    g_point_color = RED;
+    sprintf((char *)lcd_id, "LCD ID:%04X", lcddev.id);  /* 将LCD ID打印到lcd_id数组 */
+
+
+
+    while (1)
     {
-        LED0_TOGGLE();                      /* LED0(红灯) 翻转 */
+        switch (x)
+        {
+        case 0:
+            lcd_clear(WHITE);
+            break;
+
+        case 1:
+            lcd_clear(BLACK);
+            break;
+
+        case 2:
+            lcd_clear(BLUE);
+            break;
+
+        case 3:
+            lcd_clear(RED);
+            break;
+
+        case 4:
+            lcd_clear(MAGENTA);
+            break;
+
+        case 5:
+            lcd_clear(GREEN);
+            break;
+
+        case 6:
+            lcd_clear(CYAN);
+            break;
+
+        case 7:
+            lcd_clear(YELLOW);
+            break;
+
+        case 8:
+            lcd_clear(BRRED);
+            break;
+
+        case 9:
+            lcd_clear(GRAY);
+            break;
+
+        case 10:
+            lcd_clear(LGRAY);
+            break;
+
+        case 11:
+            lcd_clear(BROWN);
+            break;
+        }
+
+        lcd_show_string(10, 40, 240, 32, 32, "STM32", RED);
+        lcd_show_string(10, 80, 240, 24, 24, "TFTLCD TEST", RED);
+        lcd_show_string(10, 110, 240, 16, 16, "ATOM@ALIENTEK", RED);
+        lcd_show_string(10, 130, 240, 16, 16, (char *)lcd_id, RED); /* 显示LCD ID */
+        x++;
+
+        if (x == 12)
+            x = 0;
+
+        LED0_TOGGLE(); /*红灯闪烁*/
         delay_ms(1000);
     }
 
@@ -50,8 +121,7 @@ int main(void)
 
 
 
-
-// MX code
+// MX code				==============================================================
 void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
@@ -149,3 +219,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+// MX code				==============================================================

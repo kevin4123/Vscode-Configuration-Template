@@ -68,6 +68,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 	${CMAKE_SOURCE_DIR}/Drivers/BSP/EXTI/exti.c
 	${CMAKE_SOURCE_DIR}/Drivers/BSP/WDG/wdg.c
 	${CMAKE_SOURCE_DIR}/Drivers/BSP/TIMER/btim.c
+	${CMAKE_SOURCE_DIR}/Drivers/BSP/LCD/lcd.c
 )
 
 # Add include paths
