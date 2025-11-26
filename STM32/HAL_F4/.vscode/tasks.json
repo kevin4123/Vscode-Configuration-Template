@@ -1,67 +1,6 @@
 {
   "version": "2.0.0",
   "tasks": [
-
-    /* ---------- CMake (STM32)---------- */
-	{
-		"label": "CMake (STM32)",
-		"type": "shell",
-		"command": "cmake",
-		"args": [
-			"--preset Debug",
-			"-S", "${workspaceFolder}",
-			"-B", "${workspaceFolder}/build/Debug",
-			"-DCMAKE_BUILD_TYPE=Debug",
-		],
-		"group": "build",
-		"detail": "Generates the build files for the STM32 microcontroller using CMake."
-	},
-
-    /* ---------- CMake Configure (MinGW)---------- */
-    {
-      "label": "CMake Configure (MinGW)",
-      "type": "shell",
-      "command": "cmake",
-      "args": [
-        "-S", ".",
-        "-B", "build",
-        "-G","MinGW Makefiles",   //修改
-        "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON",
-        "-DCMAKE_VERBOSE_MAKEFILE=ON"
-      ],
-      "group": {
-        "kind": "build",
-        "isDefault": false
-      },
-	  "detail": " Configures the project for building with MinGW Makefiles.",
-    },
-	/* ---------- Open Qt Creator---------- */
-	{
-		"label": "Open Qt Creator",
-		"type": "shell",
-		"command": "D:/Qt/Tools/QtCreator/bin/qtcreator.exe",
-		"group": "none",
-		"problemMatcher": [],
-		"detail": "Opens the Qt Creator IDE.",
-	},
-	/* ---------- Open Qt Designer---------- */
-	{
-		"label": "Open Qt Designer",
-		"type": "shell",
-		"command": "D:/Qt/6.9.2/msvc2022_64/bin/designer.exe",
-		"group": "none",
-		"problemMatcher": [],
-		"detail": "Opens the Qt Designer IDE.",
-	},
-	/* ---------- Open Qt Assistant---------- */
-	{
-		"label": "Open Qt Assistant",
-		"type": "shell",
-		"command": "D:/Qt/6.9.2/msvc2022_64/bin/assistant.exe",
-		"group": "none",
-		"problemMatcher": [],
-		"detail": "Opens the Qt Designer IDE.",
-	},
     /* ---------- openOCD flash ---------- */
     {
       "label": "openOCD flash",  

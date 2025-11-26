@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/kevin/Desktop/STM32/HAL_F4/build/cmake_install.cmake",
+		"C:/Users/kevin/Desktop/STM32/HAL_F4/build/cmake/stm32cubemx/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

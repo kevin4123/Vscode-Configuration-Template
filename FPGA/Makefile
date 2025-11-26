@@ -1,17 +1,25 @@
-TB = "C:/Users/ch180/Desktop/FPGA/led/user/sim/tb_top.v"
-TARGET = "prj/icarus/tb_top.vvp"
-SRC = $(wildcard C:/Users/ch180/Desktop/FPGA/led/user/src/*.v C:/Users/ch180/Desktop/FPGA/led/user/src/lib/*.v)
+# mingw32-make
+
+
+TB = "$(CURDIR)/user/sim/tb_top.v"
+TARGET = "$(CURDIR)/prj/icarus/tb_top.vvp"
+SRC = $(wildcard $(CURDIR)/user/src/*.v)
 
 
 all: icarus
 	iverilog.exe -g2012 -o $(TARGET) -s tb_top $(TB) $(SRC)
-	vvp ./prj/icarus/tb_top.vvp
+	vvp $(TARGET)
 
 icarus:
-	if not exist prj\icarus mkdir prj\icarus
+	if not exist "$(CURDIR)\prj\icarus" mkdir "$(CURDIR)\prj\icarus"	
 
 clean:
 	rm -rf prj/icarus
 
 .PHONY: clean
 
+$(info ==========================================================)
+$(info TB = $(TB))
+$(info TARGET = $(TARGET))
+$(info SOURCES = $(SRC))
+$(info ==========================================================)

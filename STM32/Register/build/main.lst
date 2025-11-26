@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s 			page 1
+ARM GAS  C:\Users\kevin\AppData\Local\Temp\ccYQ3HFH.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -26,35 +26,72 @@ ARM GAS  C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s 			page 1
   23              		.thumb_func
   25              	main:
   26              	.LFB29:
-   1:main.c        **** #include "stm32f10x.h"
-   2:main.c        **** 
-   3:main.c        **** 
-   4:main.c        **** int main(void) {
-  27              		.loc 1 4 16 view -0
-  28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 0
-  30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32              	.L2:
-   5:main.c        **** 	int a =	HSI_VALUE;
-   6:main.c        **** 
+   1:main.c        **** /**
+   2:main.c        ****  * @file main.c
+   3:main.c        ****  * @brief STM32 Register Project
+   4:main.c        ****  *
+   5:main.c        ****  * 
+   6:main.c        ****  */
    7:main.c        **** 
-   8:main.c        ****     while (1);  
-  33              		.loc 1 8 5 view .LVU1
-  34              		.loc 1 8 11 view .LVU2
-  35 0000 FEE7     		b	.L2
-  36              		.cfi_endproc
-  37              	.LFE29:
-  39              		.text
-  40              	.Letext0:
-  41              		.file 2 "D:/arm-gnu-toolchain/arm-gnu-toolchain/arm-none-eabi/include/machine/_default_types.h"
-  42              		.file 3 "D:/arm-gnu-toolchain/arm-gnu-toolchain/arm-none-eabi/include/sys/_stdint.h"
-ARM GAS  C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s 			page 2
+   8:main.c        **** #include "stm32f10x.h"
+   9:main.c        **** 
+  10:main.c        **** 
+  11:main.c        ****  // before start, modify "compile_flags.txt" to include the necessary libraries and flags.
+  12:main.c        **** int main(void) {
+  27              		.loc 1 12 16 view -0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  13:main.c        **** 	RCC-> APB2ENR = 0x00000010;
+  33              		.loc 1 13 2 view .LVU1
+  34              		.loc 1 13 16 is_stmt 0 view .LVU2
+  35 0000 054B     		ldr	r3, .L3
+  36 0002 1022     		movs	r2, #16
+  37 0004 9A61     		str	r2, [r3, #24]
+  14:main.c        **** 	GPIOC->CRH = 0x00300000;
+  38              		.loc 1 14 2 is_stmt 1 view .LVU3
+  39              		.loc 1 14 13 is_stmt 0 view .LVU4
+  40 0006 A3F58033 		sub	r3, r3, #65536
+  41 000a 4FF44012 		mov	r2, #3145728
+  42 000e 5A60     		str	r2, [r3, #4]
+  15:main.c        **** 	GPIOC->CRL = 0x00002000;
+  43              		.loc 1 15 2 is_stmt 1 view .LVU5
+ARM GAS  C:\Users\kevin\AppData\Local\Temp\ccYQ3HFH.s 			page 2
+
+
+  44              		.loc 1 15 13 is_stmt 0 view .LVU6
+  45 0010 4FF40052 		mov	r2, #8192
+  46 0014 1A60     		str	r2, [r3]
+  47              	.L2:
+  16:main.c        **** 
+  17:main.c        ****     while (1){
+  48              		.loc 1 17 5 is_stmt 1 view .LVU7
+  18:main.c        **** 
+  19:main.c        **** 	}
+  49              		.loc 1 19 2 view .LVU8
+  17:main.c        **** 
+  50              		.loc 1 17 11 view .LVU9
+  51 0016 FEE7     		b	.L2
+  52              	.L4:
+  53              		.align	2
+  54              	.L3:
+  55 0018 00100240 		.word	1073876992
+  56              		.cfi_endproc
+  57              	.LFE29:
+  59              		.text
+  60              	.Letext0:
+  61              		.file 2 "D:/Arm_GNU_Toolchain/arm-none-eabi/arm-none-eabi/include/machine/_default_types.h"
+  62              		.file 3 "D:/Arm_GNU_Toolchain/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h"
+  63              		.file 4 "CMSIS/CM3/DeviceSupport/ST/STM32F10x/stm32f10x.h"
+ARM GAS  C:\Users\kevin\AppData\Local\Temp\ccYQ3HFH.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s:19     .text.main:00000000 $t
-C:\Users\ch180\AppData\Local\Temp\ccg9ch4j.s:25     .text.main:00000000 main
+C:\Users\kevin\AppData\Local\Temp\ccYQ3HFH.s:19     .text.main:00000000 $t
+C:\Users\kevin\AppData\Local\Temp\ccYQ3HFH.s:25     .text.main:00000000 main
+C:\Users\kevin\AppData\Local\Temp\ccYQ3HFH.s:55     .text.main:00000018 $d
 
 NO UNDEFINED SYMBOLS

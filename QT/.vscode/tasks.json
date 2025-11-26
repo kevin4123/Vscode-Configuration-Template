@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+	/* ---------- Open Qt Creator---------- */
+	{
+		"label": "Open Qt Creator",
+		"type": "shell",
+		"command": "D:/Qt/Tools/QtCreator/bin/qtcreator.exe",
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the Qt Creator IDE."
+	},
+	/* ---------- Open Qt Designer---------- */
+	{
+		"label": "Open Qt Designer",
+		"type": "shell",
+		"command": "D:\\Qt\\6.10.1\\msvc2022_64\\bin\\designer.exe",
+		"args": [
+			"mainwindow.ui",
+		],
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the Qt Designer IDE."
+	},
+	/* ---------- Open Qt Assistant---------- */
+	{
+		"label": "Open Qt Assistant",
+		"type": "shell",
+		"command": "D:\\Qt\\6.10.1\\msvc2022_64\\bin\\assistant.exe",
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the Qt Designer IDE."
+	},
+    /* ---------- DOXYGEN ---------- */
+	{
+		"label": "DOXYGEN",
+		"type": "shell",
+		"command": "doxygen",
+		"args": [
+			"Doxyfile"
+		],
+		"group": {
+			"kind": "build",
+			"isDefault": false
+		},
+		"detail": "Generates documentation using doxygen."
+	}
+]
+}

@@ -1,4 +1,4 @@
 CompileFlags:
   Remove: 
     - /execution-charset:.936
-    - /execution-charset:gb2312
+    - /execution-charset:.437

@@ -2,49 +2,6 @@
 {
   "version": "0.2.0",
   "configurations": [
-    /* ---------- MSVC Debug ---------- */
-	{
-		"name": "MSVC Debug",
-		"type": "cppvsdbg",
-		"request": "launch",
-		"program": "${workspaceFolder}/build/<filename>.exe",  //修改      1
-		"args": [],
-		"environment": [],
-		"console": "integratedTerminal",
-		"cwd": "${workspaceFolder}",
-	},
-    /* ---------- GCC Debug (GDB) ---------- */
-    {
-      "name": "GCC Debug (GDB)",       
-      "type": "cppdbg",
-      "request": "launch",
-      "program": "${workspaceFolder}/build/<filename>",  //修改      1    
-      "args": [],
-      "stopAtEntry": true,
-      "cwd": "${workspaceFolder}",
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:/mingw64/bin/gdb.exe",        //          2
-      "externalConsole": false
-    },
-    /* ---------- GCC Debug (GDB) Attach ---------- */
-    {
-      "name": "GCC Debug (GDB) Attach",
-      "type": "cppdbg",
-      "request": "attach",
-      "program": "${workspaceFolder}/<filename>",        //修改      1
-      "processId": "${command:pickProcess}",
-      "MIMode": "gdb",
-      "miDebuggerPath": "C:/mingw64/bin/gdb.exe",        //          2
-    },
-    /* ---------- Clang Debug (LLDB) ---------- */
-    {
-      "type": "lldb",        
-      "request": "launch",
-      "name": "Clang Debug (LLDB)",
-      "program": "${workspaceFolder}/build/<filename>",  //修改     1
-      "args": [],
-      "cwd": "${workspaceFolder}",
-    },
     /* ---------- Cortex-Debug (OpenOCD) ---------- */
     /*
     * 等价于：openocd -f interface/stlink.cfg -f target/stm32f1x.cfg
@@ -61,7 +18,7 @@
         "request": "launch",
         "type": "cortex-debug",
         "servertype": "openocd",
-        "serverpath": "D:/openOCD/openocd/bin/openocd.exe",
+        "serverpath": "D:/OpenOCD/openocd/bin/openocd.exe",
         "interface": "swd",
         "device": "STM32F103C8T6",                       // 修改     2
         "svdFile": "${workspaceRoot}/svd/STM32F103.svd",  // ← 可选

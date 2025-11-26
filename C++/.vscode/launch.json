@@ -1,0 +1,51 @@
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    /* ---------- MSVC Debug ---------- */
+	{
+		"name": "MSVC Debug",
+		"type": "cppvsdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/build/App.exe",  //修改      1
+		"args": [],
+		"environment": [],
+		"console": "integratedTerminal",
+		"cwd": "${workspaceFolder}",
+	},
+    /* ---------- GCC Debug ---------- */
+    {
+      "name": "GCC Debug (GDB)",       
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/<filename>",  //修改      1    
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:\\Mingw\\mingw64\\bin\\gdb.exe",        //          2
+      "externalConsole": false
+    },
+    /* ---------- GCC Debug Attach ---------- */
+    {
+      "name": "GCC Debug (GDB) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "${workspaceFolder}/<filename>",        //修改      1
+      "processId": "${command:pickProcess}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:\\Mingw\\mingw64\\bin\\gdb.exe",        //          2
+    },
+    /* ---------- Clang Debug ---------- */
+    {
+      "type": "lldb",        
+      "request": "launch",
+      "name": "Clang Debug (LLDB)",
+      "program": "${workspaceFolder}/build/<filename>",  //修改     1
+      "args": [],
+      "cwd": "${workspaceFolder}",
+    },
+  ]
+}
+
+

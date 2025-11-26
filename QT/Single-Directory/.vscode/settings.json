@@ -1,6 +1,0 @@
-{
-	"files.encoding": "utf8",
-	"editor.tabSize": 4,
-	/*clangd*/
-	// 1.默认是clangd 
-}

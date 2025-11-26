@@ -1,0 +1,127 @@
+ARM GAS  C:\Users\kevin\AppData\Local\Temp\ccAs6nfR.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "main.c"
+  18              		.section	.text.main,"ax",%progbits
+  19              		.align	1
+  20              		.global	main
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  25              	main:
+  26              	.LFB29:
+   1:main.c        **** /**
+   2:main.c        ****  * @file main.c
+   3:main.c        ****  * @brief STM32 STD Library Project
+   4:main.c        ****  *
+   5:main.c        ****  * 
+   6:main.c        ****  */
+   7:main.c        **** 
+   8:main.c        **** #include "stm32f10x.h"
+   9:main.c        **** 
+  10:main.c        **** // before start, modify "compile_flags.txt" to include the necessary libraries and flags.
+  11:main.c        **** int main(void) {
+  27              		.loc 1 11 16 view -0
+  28              		.cfi_startproc
+  29              		@ Volatile: function does not return.
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 00B5     		push	{lr}
+  33              	.LCFI0:
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 14, -4
+  36 0002 83B0     		sub	sp, sp, #12
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 16
+  12:main.c        **** 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
+  39              		.loc 1 12 2 view .LVU1
+  40 0004 0121     		movs	r1, #1
+  41 0006 1020     		movs	r0, #16
+  42 0008 FFF7FEFF 		bl	RCC_APB2PeriphClockCmd
+  43              	.LVL0:
+  13:main.c        **** 	GPIO_InitTypeDef GPIO_InitStructure;
+  44              		.loc 1 13 2 view .LVU2
+  14:main.c        **** 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+ARM GAS  C:\Users\kevin\AppData\Local\Temp\ccAs6nfR.s 			page 2
+
+
+  45              		.loc 1 14 2 view .LVU3
+  46              		.loc 1 14 30 is_stmt 0 view .LVU4
+  47 000c 4FF40055 		mov	r5, #8192
+  48 0010 ADF80450 		strh	r5, [sp, #4]	@ movhi
+  15:main.c        **** 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;
+  49              		.loc 1 15 2 is_stmt 1 view .LVU5
+  50              		.loc 1 15 31 is_stmt 0 view .LVU6
+  51 0014 1023     		movs	r3, #16
+  52 0016 8DF80730 		strb	r3, [sp, #7]
+  16:main.c        **** 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
+  53              		.loc 1 16 2 is_stmt 1 view .LVU7
+  54              		.loc 1 16 32 is_stmt 0 view .LVU8
+  55 001a 0323     		movs	r3, #3
+  56 001c 8DF80630 		strb	r3, [sp, #6]
+  17:main.c        **** 	GPIO_Init(GPIOC, &GPIO_InitStructure);	
+  57              		.loc 1 17 2 is_stmt 1 view .LVU9
+  58 0020 044C     		ldr	r4, .L4
+  59 0022 01A9     		add	r1, sp, #4
+  60 0024 2046     		mov	r0, r4
+  61 0026 FFF7FEFF 		bl	GPIO_Init
+  62              	.LVL1:
+  18:main.c        **** 	GPIO_ResetBits(GPIOC, GPIO_Pin_13);
+  63              		.loc 1 18 2 view .LVU10
+  64 002a 2946     		mov	r1, r5
+  65 002c 2046     		mov	r0, r4
+  66 002e FFF7FEFF 		bl	GPIO_ResetBits
+  67              	.LVL2:
+  68              	.L2:
+  19:main.c        **** 	
+  20:main.c        ****     while (1){
+  69              		.loc 1 20 5 view .LVU11
+  21:main.c        **** 
+  22:main.c        **** 		
+  23:main.c        **** 	}  
+  70              		.loc 1 23 2 view .LVU12
+  20:main.c        **** 
+  71              		.loc 1 20 11 view .LVU13
+  72 0032 FEE7     		b	.L2
+  73              	.L5:
+  74              		.align	2
+  75              	.L4:
+  76 0034 00100140 		.word	1073811456
+  77              		.cfi_endproc
+  78              	.LFE29:
+  80              		.text
+  81              	.Letext0:
+  82              		.file 2 "D:/Arm_GNU_Toolchain/arm-none-eabi/arm-none-eabi/include/machine/_default_types.h"
+  83              		.file 3 "D:/Arm_GNU_Toolchain/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h"
+  84              		.file 4 "CMSIS/CM3/DeviceSupport/ST/STM32F10x/stm32f10x.h"
+  85              		.file 5 "STM32F10x_StdPeriph_Driver/inc/stm32f10x_gpio.h"
+  86              		.file 6 "STM32F10x_StdPeriph_Driver/inc/stm32f10x_rcc.h"
+ARM GAS  C:\Users\kevin\AppData\Local\Temp\ccAs6nfR.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\kevin\AppData\Local\Temp\ccAs6nfR.s:19     .text.main:00000000 $t
+C:\Users\kevin\AppData\Local\Temp\ccAs6nfR.s:25     .text.main:00000000 main
+C:\Users\kevin\AppData\Local\Temp\ccAs6nfR.s:76     .text.main:00000034 $d
+
+UNDEFINED SYMBOLS
+RCC_APB2PeriphClockCmd
+GPIO_Init
+GPIO_ResetBits

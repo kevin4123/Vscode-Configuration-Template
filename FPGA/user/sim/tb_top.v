@@ -3,15 +3,13 @@
 module tb_top;
     reg clk = 0;
     reg rst = 0;
-    wire [3:0] led;
 
     top uut (
-        .clk (clk),
-        .rst (rst),
-        .led (led)
+        .clk(clk),
+        .rst(rst)
     );
 
-    always #5 clk = ~clk; // 100 MHz 时钟
+    always #5 clk = ~clk; // 100 MHz 
 
     initial begin
         $dumpfile("tb_top.vcd");
