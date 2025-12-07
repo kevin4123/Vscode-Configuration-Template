@@ -113,5 +113,5 @@ INTERFACE
 )
 
 # information
-include(${CMAKE_SOURCE_DIR}/cmake/common/PrintCommonInfo.cmake)
+include(${CMAKE_SOURCE_DIR}/My_cmake/common/PrintCommonInfo.cmake)
 # print_common_info()

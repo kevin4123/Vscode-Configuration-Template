@@ -13,10 +13,6 @@ all: icarus
 icarus:
 	if not exist "$(CURDIR)\prj\icarus" mkdir "$(CURDIR)\prj\icarus"	
 
-clean:
-	rm -rf prj/icarus
-
-.PHONY: clean
 
 $(info ==========================================================)
 $(info TB = $(TB))

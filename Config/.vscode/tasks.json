@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+	/* ---------- Open Qt Creator---------- */
+	{
+		"label": "Open Qt Creator",
+		"type": "shell",
+		"command": "D:/Qt/Tools/QtCreator/bin/qtcreator.exe",
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the Qt Creator IDE."
+	},
+	/* ---------- Open Qt Designer---------- */
+	{
+		"label": "Open Qt Designer",
+		"type": "shell",
+		"command": "D:\\Qt\\6.10.1\\msvc2022_64\\bin\\designer.exe",
+		"args": [
+			"mainwindow.ui",
+		],
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the Qt Designer IDE."
+	},
+	/* ---------- Open Qt Assistant---------- */
+	{
+		"label": "Open Qt Assistant",
+		"type": "shell",
+		"command": "D:\\Qt\\6.10.1\\msvc2022_64\\bin\\assistant.exe",
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the Qt Designer IDE."
+	},
+    /* ---------- DOXYGEN ---------- */
+	{
+		"label": "DOXYGEN",
+		"type": "shell",
+		"command": "doxygen",
+		"args": [
+			"Doxyfile"
+		],
+		"group": {
+			"kind": "build",
+			"isDefault": false
+		},
+		"detail": "Generates documentation using doxygen."
+	},
+	/* ---------- GtkWave---------- */
+	{
+		"label": "GtkWave",
+		"type": "shell",
+		"command": "gtkwave",
+		"args": [
+			"tb.vcd",
+		],
+		"group": "none",
+		"problemMatcher": [],
+		"detail": "Opens the GtkWave waveform viewer.",
+	},
+    /* ---------- openOCD flash ---------- */
+    {
+      "label": "openOCD flash",  
+      "type": "shell",   
+      "command": "openocd",
+      "args": [
+        "-f", "interface/stlink.cfg",   //修改
+        "-f", "target/stm32f1x.cfg",    //修改
+        // "-f", "target/stm32f4x.cfg",
+        "-c", "program build/Debug/App.elf verify reset exit"  //修改
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+	  "detail": "Flashes the STM32F103C8T6 microcontroller using openOCD."
+	//   "detail": "Flashes the STM32F407ZGT6 microcontroller using openOCD."
+    },
+]
+}

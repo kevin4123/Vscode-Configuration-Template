@@ -84,7 +84,7 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
 set(LINKER_SCRIPT "${CMAKE_SOURCE_DIR}/STM32F103XX_FLASH.ld")
 
 # information
-include("cmake/embedded/PrintEmbeddedInfo.cmake")
-include("cmake/common/PrintCommonInfo.cmake")
+include("My_cmake/embedded/PrintEmbeddedInfo.cmake")
+include("My_cmake/common/PrintCommonInfo.cmake")
 # print_common_info()
 # print_embedded_info()

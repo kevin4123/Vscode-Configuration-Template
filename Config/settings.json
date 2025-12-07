@@ -1,0 +1,37 @@
+{
+	/*Vscode*/
+    "editor.guides.bracketPairs": "active",           
+    "editor.mouseWheelZoom": true,
+    "editor.tabSize": 4,
+
+	/*Terminal*/
+	"terminal.integrated.profiles.windows": {
+		"MSVC x64": {
+			"path": "cmd.exe",
+			"args": ["/k", "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Auxiliary\\Build\\vcvars64.bat"]
+		},
+		"MSVC x86":{
+			"path": "cmd.exe",
+			"args": ["/k", "C:\\Program Files (x86)\\Microsoft Visual Studio\\18\\BuildTools\\VC\\Auxiliary\\Build\\vcvars32.bat"]
+		},
+		"QT6_MSVC_x64": {
+			"path": "cmd.exe",
+			"args": ["/k", ".\\QT_env.bat && cd /d %CD%"]
+		},
+	},
+	
+	/*GitHub Copilot*/
+
+    /*clangd*/
+	
+    /*hex editor*/
+
+    /*C/C++ settings*/
+	"C_Cpp.intelliSenseEngine": "disabled",
+
+	/*Digital IDE*/
+	"digital-ide.prj.vivado.install.path": "D:\\Vivado\\2025.2\\Vivado\\bin",
+	"digital-ide.welcome.show": false,
+	"digital-ide.function.lsp.linter.verilog.diagnostor": "verilator",
+	"digital-ide.function.lsp.linter.systemverilog.diagnostor": "verilator",
+}

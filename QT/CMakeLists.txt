@@ -70,7 +70,7 @@ set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
 
 
 # information
-include(${CMAKE_SOURCE_DIR}/cmake/common/PrintCommonInfo.cmake)
-include(${CMAKE_SOURCE_DIR}/cmake/qt/PrintQtInfo.cmake)
+include(${CMAKE_SOURCE_DIR}/My_cmake/common/PrintCommonInfo.cmake)
+include(${CMAKE_SOURCE_DIR}/My_cmake/qt/PrintQtInfo.cmake)
 print_common_info()
 print_qt_info()

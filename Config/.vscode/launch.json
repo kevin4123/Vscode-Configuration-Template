@@ -1,0 +1,80 @@
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    /* ---------- MSVC Debug ---------- */
+	{
+		"name": "MSVC Debug",
+		"type": "cppvsdbg",
+		"request": "launch",
+		"program": "${workspaceFolder}/build/App.exe",  //修改      1
+		"args": [],
+		"environment": [],
+		"console": "integratedTerminal",
+		"cwd": "${workspaceFolder}",
+	},
+    /* ---------- GCC Debug ---------- */
+    {
+      "name": "GCC Debug (GDB)",       
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/<filename>",  //修改      1    
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:\\Mingw\\mingw64\\bin\\gdb.exe",        //          2
+      "externalConsole": false
+    },
+    /* ---------- GCC Debug Attach ---------- */
+    {
+      "name": "GCC Debug (GDB) Attach",
+      "type": "cppdbg",
+      "request": "attach",
+      "program": "${workspaceFolder}/<filename>",        //修改      1
+      "processId": "${command:pickProcess}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "D:\\Mingw\\mingw64\\bin\\gdb.exe",        //          2
+    },
+    /* ---------- Clang Debug ---------- */
+    {
+      "type": "lldb",        
+      "request": "launch",
+      "name": "Clang Debug (LLDB)",
+      "program": "${workspaceFolder}/build/<filename>",  //修改     1
+      "args": [],
+      "cwd": "${workspaceFolder}",
+    },
+    /* ---------- Cortex-Debug (OpenOCD) ---------- */
+    /*
+    * 等价于：openocd -f interface/stlink.cfg -f target/stm32f1x.cfg
+    *        arm-none-eabi-gdb build/run.elf
+    *        target remote :3333
+    *        monitor reset halt
+    *        load
+    *        continue
+    */
+    {
+        "name": "Cortex-Debug (OpenOCD)",
+        "cwd": "${workspaceRoot}",
+        "executable": "${workspaceRoot}/build/Debug/App.elf",  // 修改     1
+        "request": "launch",
+        "type": "cortex-debug",
+        "servertype": "openocd",
+        "serverpath": "D:/OpenOCD/openocd/bin/openocd.exe",
+        "interface": "swd",
+        "device": "STM32F103C8T6",                       // 修改     2
+        // "device": "STM32F407ZGT6",
+        "svdFile": "${workspaceRoot}/svd/STM32F103.svd",  // ← 可选
+        // "svdFile": "${workspaceRoot}/svd/STM32F407.svd",
+        "configFiles": [
+            "interface/stlink.cfg",                      // 修改     3
+            "target/stm32f1x.cfg"                        // 修改     4
+            // "target/stm32f4x.cfg"
+        ],
+        "runToEntryPoint": "main",             // 修改     5
+    },
+  ]
+}
+
+
